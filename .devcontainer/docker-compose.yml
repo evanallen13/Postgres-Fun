@@ -1,0 +1,22 @@
+services:
+  app:
+    image: python:3.10.16-bullseye
+    command: sleep infinity
+    working_dir: /workspaces/Dev-Container-Compose
+    volumes:
+      - ..:/workspaces/Dev-Container-Compose
+
+  db:
+    image: ankane/pgvector:latest   # Postgres with pgvector preinstalled
+    container_name: vector-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: vectordb
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
+    driver: local
