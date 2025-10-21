@@ -2,9 +2,9 @@ services:
   app:
     image: python:3.10.16-bullseye
     command: sleep infinity
-    working_dir: /workspaces/Dev-Container-Compose
+    working_dir: /workspaces/Postgres-Fun
     volumes:
-      - ..:/workspaces/Dev-Container-Compose
+      - ..:/workspaces/Postgres-Fun
 
   db:
     image: ankane/pgvector:latest   # Postgres with pgvector preinstalled
